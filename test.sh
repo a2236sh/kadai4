@@ -68,6 +68,20 @@ expected='error:第二引数に利用できない値がセットされていま�
 is_expected $result $expected
 
 
+echo "引数にマイナスの数字渡すとエラーを返すこと(第一引数)"
+result=`bash gcd.sh 12 'fuga'`
+expected='error:第一引数に利用できない値がセットされています。引数には自然数を設定してください'
+
+is_expected $result $expected
+
+
+echo "引数にマイナスの数字渡すとエラーを返すこと(第二引数)"
+result=`bash gcd.sh 12 'fuga'`
+expected='error:第二引数に利用できない値がセットされています。引数には自然数を設定してください'
+
+is_expected $result $expected
+
+
 echo "引数に数字以外を渡すとエラーを返すこと(第一引数)"
 result=`bash gcd.sh 'hoge' 16`
 expected='error:第一引数に利用できない値がセットされています。引数には自然数を設定してください'
